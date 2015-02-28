@@ -139,7 +139,7 @@ app.get('*', function (req, res) {
 var port = app.get('port');
 var hostname = app.get('hostname');
 var server = http.createServer(app);
-server.listen(port, hostname, function() {
+server.listen(port, function() {
   console.log("Server listening on port %d", port);
 });
   
