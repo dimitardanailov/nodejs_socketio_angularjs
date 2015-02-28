@@ -19,7 +19,12 @@ var path = require('path')
 // Server
 // ========================
 var app = express();
-app.set('port', process.env.PORT || 9000);
+
+// Set Hostname
+app.set('hostname', process.env.OPENSHIFT_NODEJS_IP || 'localhost');
+
+// Set Port
+app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 9000);
 
 // The route base is ../app
 app.set('views', path.resolve(__dirname, '../app'));
@@ -132,8 +137,9 @@ app.get('*', function (req, res) {
 
 // Create a new http server
 var port = app.get('port');
+var hostname = app.get('hostname');
 var server = http.createServer(app);
-server.listen(port, function() {
+server.listen(port, hostname, function() {
   console.log("Server listening on port %d", port);
 });
   
