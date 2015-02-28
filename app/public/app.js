@@ -183,6 +183,8 @@ ChatSystem.service('SocketIOServiceChat', ['$rootScope', function($rootScope) {
   // var socketChat = io.connect('http://localhost' + namespace);
   var socketChat = io.connect('https://simple-chat-socket-system.herokuapp.com' + namespace);
 
+  console.log(socketChat);
+
   // Send socket request to server
   this.emit = function(eventName, data, callback) {
     socketChat.emit(eventName, data, function () {
