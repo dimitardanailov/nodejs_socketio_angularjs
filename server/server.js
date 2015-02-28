@@ -21,7 +21,7 @@ var path = require('path')
 var app = express();
 
 // Set Hostname
-app.set('hostname', process.env.OPENSHIFT_NODEJS_IP || 'localhost');
+app.set('hostname', process.env.OPENSHIFT_NODEJS_IP || '');
 
 // Set Port
 app.set('port', process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 9000);
@@ -139,7 +139,7 @@ app.get('*', function (req, res) {
 var port = app.get('port');
 var hostname = app.get('hostname');
 var server = http.createServer(app);
-server.listen(port, function() {
+server.listen(port, hostname, function() {
   console.log("Server listening on port %d", port);
 });
   
