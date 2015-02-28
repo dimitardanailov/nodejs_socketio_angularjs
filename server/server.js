@@ -147,6 +147,8 @@ var io = socketIO.listen(server, { log: false });
 
 // Initialize a new socket.io application, named 'chat'
 var chatRoomNameSpace = '/chat';
+var chatRoomNameSpace = '/';
+
 var chat = io.of(chatRoomNameSpace).on('connection', function(socket) {
 
   socket.nameSpace = chatRoomNameSpace;

@@ -180,6 +180,8 @@ ChatSystem.service('IntegerService', function() {
 ChatSystem.service('SocketIOServiceChat', ['$rootScope', function($rootScope) {
 
   var namespace = '/chat';
+  var namespace = '/';
+
   // var socketChat = io.connect('http://localhost' + namespace);
   var socketChat = io.connect('https://simple-chat-socket-system.herokuapp.com' + namespace);
 
