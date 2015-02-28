@@ -173,6 +173,8 @@ var chat = io.of(chatRoomNameSpace).on('connection', function(socket) {
 
     // Get Chat Room Id
     var chatRoomId = chatRoom.id;
+    console.log("Chat room ID %d", chatRoomId);
+    console.log("Chat Room user", user);
 
     // Generate Chat Room Name
     socket.roomName = chatRoomStandartName + chatRoomId;
