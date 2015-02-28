@@ -1,0 +1,80 @@
+<h1> 
+  {{ chatRoom.name }}
+</h1>
+
+<div> Online Users: {{ onlineUsers }} </div>
+
+<hr/>
+
+<div> Chat Room Users:  </div>
+<ul>
+  <li ng-repeat="user in users">
+    <span>
+      {{ user.chatRoomUsername }}
+    </span>
+  </li>
+</ul>
+
+<hr/>
+
+<div>
+  <strong>Active User</strong>: {{ user.chatRoomUsername }}
+</div>
+
+<h3> Messages </h3>
+
+<ul>
+  <li ng-repeat="message in messages | orderBy: 'created_at': reverse">
+    <div>
+      <strong>
+        {{ message.username }}
+      </strong>
+    </div>
+    <div>
+      Date: {{ message.created_at | date: 'yyyy-MM-dd H:m:s' }}
+    </div>
+    <div>
+      {{ message.text }}
+    </div>
+  </li>
+</ul>
+
+<h4> Add a new Message </h4>
+
+<!-- 
+<div>
+  <label> User: </label>
+  <select
+    ng-model="user_id"
+    ng-options="user.name for user in users track by user.id">
+    <option value="">Choose a user:</option>
+  </select>
+</div>
+-->
+
+<hr/>
+
+Typing users:
+
+<ul>
+  <li ng-repeat="user in typingUsers">
+    <span>
+      Typing: {{ user.chatRoomUsername }}
+    </span>
+  </li>
+</ul>
+
+<hr/>
+
+<div>
+  <div>
+    <label> Message: </label>
+  </div>
+
+  <textarea ng-model="message.text" ng-change="typing()"></textarea>
+
+  <div>
+    <button ng-click="createMessage()"> Add a message </button>
+  </div>
+</div>
+

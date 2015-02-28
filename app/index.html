@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="ngChatSystem">
+
+  <head>
+    <title>Nodejs chat system</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+    <!-- Resource Lib -->
+    <script src="https://code.angularjs.org/1.2.15/angular-resource.js"></script>
+
+     <!-- Route Lib -->
+     <script src="http://code.angularjs.org/1.2.15/angular-route.min.js"></script>
+
+     <base href="/">
+
+  </head>
+
+  <body>
+
+    <!-- Input point -->
+    <div>
+      <div ng-view> </div>
+    </div>
+
+    <!-- Include Socket IO -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="public/app.js"> </script>
+  </body>
+</html>
